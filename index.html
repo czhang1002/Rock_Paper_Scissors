@@ -19,8 +19,42 @@
         <button onclick="
             playGame('scissors');
         ">Scissors</button>
+       
+        <p class="move">You: NULL || Computer: NULL</p>
+        <p class="result"></p>
+        <p class="scores"></p>
+
+        <button onclick="
+            score.wins = 0;
+            score.losses = 0;
+            score.ties = 0;
+            localStorage.removeItem('score');
+            update();
+            document.querySelector('.move').innerHTML = 'You: NULL || Computer: NULL';
+            document.querySelector('.result').innerHTML = '';
+        ">Reset</button>
 
         <script>
+            const score = JSON.parse(localStorage.getItem('score')) || {
+                wins: 0,
+                losses: 0,
+                ties: 0
+            };
+            // if (!score) {
+            //     score = {
+            //         wis: 0,
+            //         losses: 0,
+            //         ties: 0
+            //     };
+            // }
+
+            update();
+
+            function update() {
+                document.querySelector('.scores').innerHTML =
+                 `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+            }
+
             function pickComputerMove() {
                 const randomNumber = Math.random();
                 // 0 <= num < 1
@@ -74,7 +108,21 @@
                         result = 'Tie.';
                     }
                 }
-                alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
+                if (result === "Win.") {
+                    score.wins += 1;
+                }
+                else if (result === "Lose.") {
+                    score.losses += 1;
+                }
+                else if (result === "Tie.") {
+                    score.ties += 1;
+                }
+
+                localStorage.setItem('score', JSON.stringify(score));
+                document.querySelector('.result').innerHTML = result;
+                document.querySelector('.move').innerHTML = 
+                `You: ${playerMove} || Computer: ${computerMove}`;                
+                update();
             }
         </script>
     </body>
