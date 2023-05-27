@@ -64,13 +64,13 @@ function playGame(playerMove) {
             result = 'You Tie.';
         }
     }
-    if (result === "Win.") {
+    if (result === "You Win.") {
         score.wins += 1;
     }
-    else if (result === "Lose.") {
+    else if (result === "You Lose.") {
         score.losses += 1;
     }
-    else if (result === "Tie.") {
+    else if (result === "You Tie.") {
         score.ties += 1;
     }
 
