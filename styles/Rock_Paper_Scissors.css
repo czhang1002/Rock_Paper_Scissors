@@ -1,0 +1,43 @@
+    body {
+        background-color: black;
+        color: white;
+        font-family: Comic Sans MS;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .title {
+        font-size: 30px;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+    .move_icon {
+        height: 60px;
+    }
+    .move_button {
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 50px;
+        padding: 30px;
+        margin: 20px;
+        cursor: pointer;
+    }
+    .move {
+        margin-top: 25px;
+        margin-left: 20px;
+    }
+    .result {
+        font-size: 30px;
+        margin-left: 20px;
+    }
+    .scores {
+        margin-left: 20px;
+
+    }
+    .reset_button {
+        font-family: Comic Sans MS;
+        border: none;
+        background-color: white;
+        padding: 10px 15px;
+        margin-left: 20px;
+        cursor: pointer;
+    }
